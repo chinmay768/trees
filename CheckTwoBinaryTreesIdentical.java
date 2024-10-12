@@ -13,7 +13,7 @@ public class CheckTwoBinaryTreesIdentical {
             return  false;
         }
 
-        return checkTwoBinaryTreesIdentical(root1.left, root2.left) && checkTwoBinaryTreesIdentical(root2.right, root2.right);
+        return checkTwoBinaryTreesIdentical(root1.left, root2.left) && checkTwoBinaryTreesIdentical(root1.right, root2.right);
 
     }
 
