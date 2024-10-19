@@ -6,4 +6,8 @@ public class Node {
         data = item;
         left = right = null;
     }
+
+    @Override public String toString(){
+        return "" + this.data;
+    }
 }
