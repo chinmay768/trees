@@ -4,6 +4,32 @@ import java.util.Stack;
 
 public class AllTypesInOneTraversal {
 
+    private static class Pair{
+        Node first;
+        Integer second;
+
+        public Node getFirst() {
+            return first;
+        }
+
+        public Pair(Node first, Integer second) {
+            this.second = second;
+            this.first = first;
+        }
+
+        public void setFirst(Node first) {
+            this.first = first;
+        }
+
+        public Integer getSecond() {
+            return second;
+        }
+
+        public void setSecond(Integer second) {
+            this.second = second;
+        }
+    }
+
     public static void preInPostTraversal(Node root){
         List<Integer> pre = new ArrayList<>();
         List<Integer> in = new ArrayList<>();
@@ -53,31 +79,5 @@ public class AllTypesInOneTraversal {
         root.right.right = new Node(7);
 
         preInPostTraversal(root);
-    }
-}
-
-class Pair{
-    Node first;
-    Integer second;
-
-    public Node getFirst() {
-        return first;
-    }
-
-    public Pair(Node first, Integer second) {
-        this.second = second;
-        this.first = first;
-    }
-
-    public void setFirst(Node first) {
-        this.first = first;
-    }
-
-    public Integer getSecond() {
-        return second;
-    }
-
-    public void setSecond(Integer second) {
-        this.second = second;
     }
 }
