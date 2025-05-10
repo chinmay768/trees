@@ -10,6 +10,17 @@ public class VerticalOrderTraversal {
         }
     }
 
+    static class Tuple2{
+        Node node;
+        Integer col;
+        Integer level;
+        Tuple2(Node node, Integer col, Integer level){
+            this.node = node;
+            this.col = col;
+            this.level = level;
+        }
+    }
+
     public List<List<Integer>> verticalTraversal(Node root) {
         List<List<Integer>> verticalList = new ArrayList<>();
         Map<Integer, List<Integer>> verticalMap = new TreeMap<>();
@@ -35,6 +46,40 @@ public class VerticalOrderTraversal {
             verticalList.add(entry.getValue());
         }
         return verticalList;
+    }
+
+    public static List<List<Integer>> verticalTraversalSameLevelAndColSorted(Node root){
+        List<List<Integer>> result = new ArrayList<>();
+        Map<Integer, Map<Integer, Queue<Integer>>>  map = new TreeMap<>();
+        Queue<Tuple2> queue = new LinkedList<>();
+
+        if(root == null) return result;
+        queue.offer(new Tuple2(root, 0, 0));
+
+        while (!queue.isEmpty()){
+            Tuple2 currTuple = queue.poll();
+            Node currNode = currTuple.node;
+            int col = currTuple.col;
+            int level = currTuple.level;
+
+            map.putIfAbsent(col, new TreeMap<>());
+            map.get(col).putIfAbsent(level, new PriorityQueue<>());
+
+            map.get(col).get(level).add(currNode.data);
+            if(currNode.left != null) queue.offer(new Tuple2(currNode.left, col - 1, level + 1));
+            if(currNode.right != null) queue.offer(new Tuple2(currNode.right, col + 1, level + 1));
+        }
+
+        for(Map<Integer, Queue<Integer>> entry: map.values()){
+            result.add(new ArrayList<>());
+            for(Queue<Integer> nodes : entry.values()){
+                while (!nodes.isEmpty()){
+                    result.get(result.size() - 1).add(nodes.poll());
+                }
+            }
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
