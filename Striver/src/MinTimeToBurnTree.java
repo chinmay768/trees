@@ -79,5 +79,6 @@ public class MinTimeToBurnTree {
         root.right.right = new Node(7);
 
         System.out.println(timeToBurnTree(root, 3));
+
     }
 }
