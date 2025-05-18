@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ConstructTreeFromPreorderAndInorder {
 
-    public Node buildTree(int[] preorder, int[] inorder) {
+    public static Node buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inMap = new HashMap<>();
 
         for (int i = 0; i < inorder.length; i++){
@@ -35,7 +35,10 @@ public class ConstructTreeFromPreorderAndInorder {
     }
 
     public static void main(String[] args) {
+        int[] inOrder = {9, 3, 15, 20, 7};
+        int[] preOrder = {3, 9, 20, 15, 7};
 
+        System.out.println(LevelOrderTraversal.levelOrderTraversal(buildTree(preOrder, inOrder)));
     }
 
 }
