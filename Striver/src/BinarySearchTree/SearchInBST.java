@@ -1,5 +1,6 @@
 package BinarySearchTree;
 
+import BinaryTree.Node;
 public class SearchInBST {
 
     public static Node searchBST(Node root, int val) {
