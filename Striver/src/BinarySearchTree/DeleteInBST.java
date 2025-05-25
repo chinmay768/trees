@@ -59,6 +59,5 @@ public class DeleteInBST {
         deleteNode(root, 1);
 
         System.out.println(LevelOrderTraversal.levelOrderTraversal(root));
-
     }
 }
