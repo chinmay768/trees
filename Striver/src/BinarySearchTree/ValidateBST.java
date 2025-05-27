@@ -5,10 +5,10 @@ import BinaryTree.Node;
 public class ValidateBST {
 
     public static boolean isValidBST(Node root){
-        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    public static boolean isValidBST(Node root, int minRange, int maxRange) {
+    public static boolean isValidBST(Node root, long minRange, long maxRange) {
         if(root == null) return true;
 
         if(root.data < minRange || root.data > maxRange) return false;
