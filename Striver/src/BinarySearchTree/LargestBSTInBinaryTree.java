@@ -42,7 +42,7 @@ public class LargestBSTInBinaryTree {
                     Math.min(left.minNode, root.data), Math.max(right.maxNode, root.data));
         }
 
-        return new NodeValue(Integer.MIN_VALUE, Integer.MAX_VALUE, Math.max(left.maxSize, right.maxSize));
+        return new NodeValue(Math.max(left.maxSize, right.maxSize), Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
 
