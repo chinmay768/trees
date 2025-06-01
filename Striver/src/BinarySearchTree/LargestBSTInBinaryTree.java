@@ -46,27 +46,6 @@ public class LargestBSTInBinaryTree {
     }
 
 
-
-    static BSTInfo largestBstBt(Node root) {
-        if (root == null)
-            return new BSTInfo(Integer.MAX_VALUE,
-                    Integer.MIN_VALUE, 0);
-
-        BSTInfo left = largestBstBt(root.left);
-        BSTInfo right = largestBstBt(root.right);
-
-        // Check if the current subtree is a BST
-        if (left.max < root.data && right.min > root.data) {
-            return new BSTInfo(Math.min(left.min, root.data),
-                    Math.max(right.max, root.data),
-                    1 + left.mxSz + right.mxSz);
-        }
-
-        return new BSTInfo(Integer.MIN_VALUE,
-                Integer.MAX_VALUE,
-                Math.max(left.mxSz, right.mxSz));
-    }
-
     public static void main(String[] args) {
 
         Node root = new Node(20);
